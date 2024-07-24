@@ -1,5 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic Colors -->
+    <color name="kakaoYellow">#FFFAE100</color>
+    <color name="appleBlack">#FF111111</color>
+    <color name="red">#FFFF5247</color>
+
+    <!-- Green Scale -->
+    <color name="lightGreenBack">#FFE5F9ED</color>
+    <color name="lightGreen">#FFA9F1B0</color>
+    <color name="mainGreen">#FF47D27D</color>
+    <color name="darkGreen">#FF1C9D5F</color>
+
+    <!-- Yellow Scale -->
+    <color name="lightYellow">#FFFFF5D0</color>
+    <color name="mainYellow">#FFFFD84D</color>
+    <color name="darkYellow">#FFFFC700</color>
+
+    <!-- Blue Scale -->
+    <color name="lightBlue">#FFE8F3FF</color>
+    <color name="blue">#FF5277FC</color>
+
+    <!-- Gray Scale -->
     <color name="black">#FF000000</color>
+    <color name="gray01">#FF282A31</color>
+    <color name="gray02">#FF3C3E48</color>
+    <color name="gray03">#FF4A4C54</color>
+    <color name="gray04">#FF9396A2</color>
+    <color name="gray05">#FFA7A9B2</color>
+    <color name="gray06">#FFC3C6D0</color>
+    <color name="gray07">#FFE3E6ED</color>
+    <color name="gray08">#FFF2F3F6</color>
+    <color name="gray09">#FFF8F9FC</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
