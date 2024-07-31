@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:layout_marginTop="200.dp"
+        android:layout_marginTop="240.dp"
         android:text="로그인 하기"
         android:textColor="@color/gray01"
         android:backgroundTint="@color/mainYellow"

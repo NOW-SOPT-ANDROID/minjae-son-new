@@ -114,7 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:layout_marginTop="60.dp"
+        android:layout_marginTop="100.dp"
         android:text="회원가입 하기"
         android:textColor="@color/gray01"
         android:backgroundTint="@color/mainYellow"
