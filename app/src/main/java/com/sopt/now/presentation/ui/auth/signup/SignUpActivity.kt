@@ -1,13 +1,13 @@
-package com.sopt.now.auth.signup
+package com.sopt.now.presentation.ui.auth.signup
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.R
-import com.sopt.now.auth.signin.SignInActivity
+import com.sopt.now.presentation.ui.auth.signin.SignInActivity
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivitySignupBinding
-import com.sopt.now.utils.showToast
+import com.sopt.now.presentation.utils.showToast
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding

@@ -1,10 +1,10 @@
-package com.sopt.now
+package com.sopt.now.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivityMainBinding
-import com.sopt.now.utils.getParcelable
+import com.sopt.now.presentation.utils.getParcelable
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

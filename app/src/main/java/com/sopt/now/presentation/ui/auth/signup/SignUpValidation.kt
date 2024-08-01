@@ -1,4 +1,4 @@
-package com.sopt.now.auth.signup
+package com.sopt.now.presentation.ui.auth.signup
 
 import com.sopt.now.data.User
 

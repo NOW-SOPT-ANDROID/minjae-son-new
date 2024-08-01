@@ -1,15 +1,15 @@
-package com.sopt.now.auth.signin
+package com.sopt.now.presentation.ui.auth.signin
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sopt.now.MainActivity
+import com.sopt.now.presentation.ui.MainActivity
 import com.sopt.now.R
-import com.sopt.now.auth.signup.SignUpActivity
+import com.sopt.now.presentation.ui.auth.signup.SignUpActivity
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivitySigninBinding
-import com.sopt.now.utils.getParcelable
-import com.sopt.now.utils.showToast
+import com.sopt.now.presentation.utils.getParcelable
+import com.sopt.now.presentation.utils.showToast
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySigninBinding
