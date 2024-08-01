@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40.dp"
-        android:text="유저 닉네임"
+        android:text="@string/mypage_user_nickname"
         android:textSize="20.sp"
         app:layout_constraintTop_toTopOf="@+id/ivMyPageProfile"
         app:layout_constraintBottom_toBottomOf="@id/ivMyPageProfile"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60.dp"
         android:layout_marginTop="30.dp"
-        android:text="ID : "
+        android:text="@string/mypage_user_id_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivMyPageProfile"/>
@@ -43,7 +43,7 @@
         android:id="@+id/tvMyPageIdContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="유저 아이디"
+        android:text="@string/mypage_user_id_content"
         android:textSize="15.sp"
         app:layout_constraintStart_toEndOf="@+id/tvMyPageIdTitle"
         app:layout_constraintTop_toTopOf="@+id/tvMyPageIdTitle"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20.dp"
-        android:text="PW : "
+        android:text="@string/mypage_user_pw_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="@+id/tvMyPageIdTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvMyPageIdTitle"/>
@@ -63,7 +63,7 @@
         android:id="@+id/tvMyPagePwContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="유저 비밀번호"
+        android:text="@string/mypage_user_pw_content"
         android:textSize="15.sp"
         app:layout_constraintStart_toEndOf="@+id/tvMyPagePwTitle"
         app:layout_constraintTop_toTopOf="@+id/tvMyPagePwTitle"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20.dp"
-        android:text="Tel : "
+        android:text="@string/mypage_user_phone_number_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="@id/tvMyPagePwTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvMyPagePwTitle"/>
@@ -83,7 +83,7 @@
         android:id="@+id/tvMyPagePhoneNumberContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="유저 전화번호"
+        android:text="@string/mypage_user_phone_number_content"
         android:textSize="15.sp"
         app:layout_constraintStart_toEndOf="@+id/tvMyPagePhoneNumberTitle"
         app:layout_constraintTop_toTopOf="@+id/tvMyPagePhoneNumberTitle"
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="240.dp"
         android:layout_marginHorizontal="30.dp"
-        android:text="닉네임 변경"
+        android:text="@string/mypage_nickname_change_button"
         android:textColor="@color/gray01"
         android:backgroundTint="@color/mainYellow"
         app:layout_constraintTop_toBottomOf="@+id/tvMyPagePhoneNumberTitle"/>
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:text="로그아웃"
+        android:text="@string/mypage_logout_button"
         android:textColor="@color/gray01"
         android:backgroundTint="@color/mainYellow"
         app:layout_constraintTop_toBottomOf="@+id/btnMyPageNicknameChange"/>
@@ -115,11 +115,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:text="회원탈퇴"
+        android:text="@string/mypage_revoke_button"
         android:textColor="@color/white"
         android:backgroundTint="@color/red"
         app:layout_constraintTop_toBottomOf="@+id/btnMyPageLogout"/>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

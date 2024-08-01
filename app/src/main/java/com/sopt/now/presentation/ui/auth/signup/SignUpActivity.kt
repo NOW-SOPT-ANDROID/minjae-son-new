@@ -46,11 +46,3 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
-
-
-
-
-
-
-
-

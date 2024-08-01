@@ -1,11 +1,44 @@
 <resources>
     <string name="app_name">NOW SOPT Android</string>
 
-    <!-- SignIn -->
+    <!-- SignInActivity -->
     <string name="signin_signin_success">로그인에 성공했습니다</string>
     <string name="signin_signin_failure">로그인에 실패했습니다</string>
 
-    <!-- SignUp -->
+    <!-- activity_signin.xml -->
+    <string name="signin_title">Welcome to SOPT</string>
+    <string name="signin_id_title">ID</string>
+    <string name="signin_id_hint">아이디를 입력하세요</string>
+    <string name="signin_pw_title">PW</string>
+    <string name="signin_pw_hint">비밀번호를 입력하세요</string>
+    <string name="signin_signin_button">로그인 하기</string>
+    <string name="signin_signup_button">회원가입 하기</string>
+
+    <!-- SignUpActivity -->
     <string name="signup_signup_success">회원가입에 성공했습니다.</string>
     <string name="signup_signup_failure">회원가입에 실패했습니다.</string>
+
+    <!-- activity_signup.xml -->
+    <string name="signup_title">SIGN UP</string>
+    <string name="signup_id_title">ID</string>
+    <string name="signup_id_hint">아이디를 입력하세요 (6~10자)</string>
+    <string name="signup_pw_title">PW</string>
+    <string name="signup_pw_hint">비밀번호를 입력하세요 (8~12자)</string>
+    <string name="signup_nickname_title">닉네임</string>
+    <string name="signup_nickname_hint">닉네임을 입력하세요</string>
+    <string name="signup_phone_number_title">전화번호</string>
+    <string name="signup_phone_number_hint">010-XXXX-XXXX</string>
+    <string name="signup_signup_button">회원가입 하기</string>
+
+    <!-- activity_main.xml -->
+    <string name="mypage_user_nickname">유저 닉네임</string>
+    <string name="mypage_user_id_title">ID :</string>
+    <string name="mypage_user_id_content">유저 아이디</string>
+    <string name="mypage_user_pw_title">PW :</string>
+    <string name="mypage_user_pw_content">유저 비밀번호</string>
+    <string name="mypage_user_phone_number_title">Tel :</string>
+    <string name="mypage_user_phone_number_content">유저 전화번호</string>
+    <string name="mypage_nickname_change_button">닉네임 변경</string>
+    <string name="mypage_logout_button">로그아웃</string>
+    <string name="mypage_revoke_button">회원탈퇴</string>
 </resources>
