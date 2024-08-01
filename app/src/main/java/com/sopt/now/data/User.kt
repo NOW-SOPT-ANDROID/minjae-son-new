@@ -9,5 +9,5 @@ data class User(
     val password: String,
     val nickname: String,
     val phoneNumber: String
-): Parcelable
+) : Parcelable
 
