@@ -14,8 +14,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        user = intent.getParcelable("user", User::class.java)
+        getUserInfo()
+        showUserInfo()
+    }
 
+    private fun getUserInfo() {
+        user = intent.getParcelable("user", User::class.java)
+    }
+
+    private fun showUserInfo() {
         with(binding) {
             tvMyPageNickname.text = user?.nickname
             tvMyPageIdContent.text = user?.id
