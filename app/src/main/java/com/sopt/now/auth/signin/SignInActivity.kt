@@ -18,8 +18,16 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySigninBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        user = intent.getParcelable("user", User::class.java)
+        getUserInfo()
+        onSignInClicked()
+        onSignUpClicked()
+    }
 
+    private fun getUserInfo() {
+        user = intent.getParcelable("user", User::class.java)
+    }
+
+    private fun onSignInClicked() {
         binding.btnSignInSignIn.setOnClickListener {
             with(binding) {
                 val inputId = etSignInId.text.toString()
@@ -27,18 +35,28 @@ class SignInActivity : AppCompatActivity() {
 
                 if (inputId == user?.id && inputPassword == user?.password) {
                     showToast(this@SignInActivity, "로그인에 성공했습니다")
-                    val intent = Intent(this@SignInActivity, MainActivity::class.java)
-                    intent.putExtra("user", user)
-                    startActivity(intent)
+                    navigateToMain()
                 } else {
                     showToast(this@SignInActivity, "로그인에 실패했습니다")
                 }
             }
         }
+    }
 
+    private fun onSignUpClicked() {
         binding.btnSignInSignUp.setOnClickListener {
-            val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-            startActivity(intent)
+            navigateToSignUp()
         }
+    }
+
+    private fun navigateToMain() {
+        val intent = Intent(this@SignInActivity, MainActivity::class.java)
+        intent.putExtra("user", user)
+        startActivity(intent)
+    }
+
+    private fun navigateToSignUp() {
+        val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
+        startActivity(intent)
     }
 }
