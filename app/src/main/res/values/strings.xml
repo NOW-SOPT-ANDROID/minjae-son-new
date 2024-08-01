@@ -4,4 +4,6 @@
     <!-- SignUp -->
     <string name="signup_signup_success">회원가입에 성공했습니다.</string>
     <string name="signup_signup_failure">회원가입에 실패했습니다.</string>
+    <string name="signin_signin_success">로그인에 성공했습니다</string>
+    <string name="signin_signin_failure">로그인에 실패했습니다</string>
 </resources>

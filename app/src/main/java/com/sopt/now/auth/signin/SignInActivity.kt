@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.MainActivity
+import com.sopt.now.R
 import com.sopt.now.auth.signup.SignUpActivity
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivitySigninBinding
@@ -34,10 +35,10 @@ class SignInActivity : AppCompatActivity() {
                 val inputPassword = etSignInPw.text.toString()
 
                 if (inputId == user?.id && inputPassword == user?.password) {
-                    showToast(this@SignInActivity, "로그인에 성공했습니다")
+                    showToast(this@SignInActivity, getString(R.string.signin_signin_success))
                     navigateToMain()
                 } else {
-                    showToast(this@SignInActivity, "로그인에 실패했습니다")
+                    showToast(this@SignInActivity, getString(R.string.signin_signin_failure))
                 }
             }
         }
