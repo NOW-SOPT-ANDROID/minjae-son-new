@@ -58,6 +58,7 @@
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
         android:hint="비밀번호를 입력하세요 (8~12자)"
+        android:inputType="textPassword"
         android:backgroundTint="@color/gray04"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
