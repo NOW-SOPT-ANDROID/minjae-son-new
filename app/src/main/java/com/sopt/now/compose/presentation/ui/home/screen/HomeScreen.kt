@@ -1,4 +1,4 @@
-package com.sopt.now.compose.presentation.home.screen
+package com.sopt.now.compose.presentation.ui.home.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -10,33 +10,38 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
-import com.sopt.now.compose.presentation.home.navigation.HomeNavigator
+import com.sopt.now.compose.presentation.ui.home.navigation.HomeNavigator
 import com.sopt.now.compose.ui.theme.CustomTheme
 
 @Composable
 fun HomeRoute(
-    homeNavigator: HomeNavigator
+    homeNavigator: HomeNavigator,
+    id: String,
+    password: String,
+    nickname: String,
+    phoneNumber: String,
 ) {
-    HomeScreen()
+    HomeScreen(
+        id = id,
+        password = password,
+        nickname = nickname,
+        phoneNumber = phoneNumber
+    )
 }
 
 @Composable
-fun HomeScreen() {
-    var nickname by remember { mutableStateOf("유저 닉네임") }
-    var userId by remember { mutableStateOf("유저 아이디") }
-    var userPassword by remember { mutableStateOf("유저 비밀번호") }
-    var userPhoneNumber by remember { mutableStateOf("010-XXXX-XXXX") }
-
+fun HomeScreen(
+    id: String,
+    password: String,
+    nickname: String,
+    phoneNumber: String
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -65,7 +70,7 @@ fun HomeScreen() {
         )
         Spacer(modifier = Modifier.height(14.dp))
         Text(
-            text = userId,
+            text = id,
             color = CustomTheme.colors.gray03,
             style = CustomTheme.typography.body1Medium
         )
@@ -77,7 +82,7 @@ fun HomeScreen() {
         )
         Spacer(modifier = Modifier.height(14.dp))
         Text(
-            text = userPassword,
+            text = password,
             color = CustomTheme.colors.gray03,
             style = CustomTheme.typography.body1Medium
         )
@@ -89,7 +94,7 @@ fun HomeScreen() {
         )
         Spacer(modifier = Modifier.height(14.dp))
         Text(
-            text = userPhoneNumber,
+            text = phoneNumber,
             color = CustomTheme.colors.gray03,
             style = CustomTheme.typography.body1Medium
         )
@@ -99,5 +104,5 @@ fun HomeScreen() {
 @Preview(showBackground = true)
 @Composable
 fun showMain() {
-    HomeScreen()
+    HomeScreen("유저 아이디", "유저 비밀번호", "유저 닉네임", "010-XXXX-XXXX")
 }
