@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
+import com.sopt.now.compose.presentation.ui.home.component.UserInfoText
 import com.sopt.now.compose.presentation.ui.home.navigation.HomeNavigator
 import com.sopt.now.compose.ui.theme.CustomTheme
 
@@ -64,40 +65,19 @@ fun HomeScreen(
             )
         }
         Spacer(modifier = Modifier.height(30.dp))
-        Text(
-            text = stringResource(R.string.home_id_title),
-            color = CustomTheme.colors.gray01,
-            style = CustomTheme.typography.head2
-        )
-        Spacer(modifier = Modifier.height(14.dp))
-        Text(
-            text = id,
-            color = CustomTheme.colors.gray03,
-            style = CustomTheme.typography.body1Medium
+        UserInfoText(
+            title = stringResource(R.string.home_id_title),
+            value = id
         )
         Spacer(modifier = Modifier.height(30.dp))
-        Text(
-            text = stringResource(R.string.home_password_title),
-            color = CustomTheme.colors.gray01,
-            style = CustomTheme.typography.head2
-        )
-        Spacer(modifier = Modifier.height(14.dp))
-        Text(
-            text = password,
-            color = CustomTheme.colors.gray03,
-            style = CustomTheme.typography.body1Medium
+        UserInfoText(
+            title = stringResource(R.string.home_password_title),
+            value = password
         )
         Spacer(modifier = Modifier.height(30.dp))
-        Text(
-            text = stringResource(R.string.home_phone_number_title),
-            color = CustomTheme.colors.gray01,
-            style = CustomTheme.typography.head2
-        )
-        Spacer(modifier = Modifier.height(14.dp))
-        Text(
-            text = phoneNumber,
-            color = CustomTheme.colors.gray03,
-            style = CustomTheme.typography.body1Medium
+        UserInfoText(
+            title = stringResource(R.string.home_phone_number_title),
+            value = phoneNumber
         )
     }
 }
