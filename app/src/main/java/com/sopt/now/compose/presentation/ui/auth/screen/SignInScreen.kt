@@ -1,4 +1,4 @@
-package com.sopt.now.compose.presentation.auth.screen
+package com.sopt.now.compose.presentation.ui.auth.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,29 +23,50 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sopt.now.compose.presentation.auth.component.IdTextField
-import com.sopt.now.compose.presentation.auth.component.PasswordTextField
-import com.sopt.now.compose.presentation.auth.navigation.AuthNavigator
+import com.sopt.now.compose.presentation.ui.auth.component.AuthTextField
+import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
+import com.sopt.now.compose.presentation.utils.showToast
 import com.sopt.now.compose.ui.theme.CustomTheme
 
 @Composable
 fun SignInRoute(
-    authNavigator: AuthNavigator
+    authNavigator: AuthNavigator,
+    id: String,
+    password: String,
+    nickname: String,
+    phoneNumber: String
 ) {
     SignInScreen(
-        onClickSignIn = {authNavigator.navigateToHome()},
-        onClickSignUp = {authNavigator.navigateToSignUp()}
+        onClickSignIn = { id, password, nickname, phoneNumber ->
+            authNavigator.navigateToHome(
+                id,
+                password,
+                nickname,
+                phoneNumber
+            )
+        },
+        onClickSignUp = { authNavigator.navigateToSignUp() },
+        id = id,
+        password = password,
+        nickname = nickname,
+        phoneNumber = phoneNumber
     )
 }
 
 @Composable
 fun SignInScreen(
-    onClickSignIn: () -> Unit,
-    onClickSignUp: () -> Unit
+    onClickSignIn: (String, String, String, String) -> Unit,
+    onClickSignUp: () -> Unit,
+    id: String,
+    password: String,
+    nickname: String,
+    phoneNumber: String
 ) {
+    val context = LocalContext.current
     var inputId by remember { mutableStateOf(TextFieldValue("")) }
     var inputPassword by remember { mutableStateOf(TextFieldValue("")) }
     var isIdTextFieldFocused by remember { mutableStateOf(false) }
@@ -65,24 +86,27 @@ fun SignInScreen(
             style = CustomTheme.typography.head1
         )
         Spacer(modifier = Modifier.height(80.dp))
-        IdTextField(
+        AuthTextField(
             value = inputId,
             onValueChange = { inputId = it },
             modifier = Modifier
                 .fillMaxWidth(),
             isFocused = isIdTextFieldFocused,
             onFocusChanged = { isIdTextFieldFocused = it },
-            onRemove = { inputId = TextFieldValue("") }
+            onRemove = { inputId = TextFieldValue("") },
+            hint = "아이디를 입력하세요 (6~10자)"
         )
         Spacer(modifier = Modifier.height(40.dp))
-        PasswordTextField(
+        AuthTextField(
             value = inputPassword,
             onValueChange = { inputPassword = it },
             modifier = Modifier
                 .fillMaxWidth(),
             isFocused = isPasswordTextFieldFocused,
             onFocusChanged = { isPasswordTextFieldFocused = it },
-            onRemove = { inputPassword = TextFieldValue("") }
+            onRemove = { inputPassword = TextFieldValue("") },
+            isPassword = true,
+            hint = "비밀번호를 입력하세요 (8~12자)"
         )
         Spacer(modifier = Modifier.height(40.dp))
         Column(
@@ -106,7 +130,21 @@ fun SignInScreen(
         }
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = { onClickSignIn() },
+            onClick = {
+                when {
+                    inputId.text.isEmpty() || inputPassword.text.isEmpty() -> showToast(
+                        context,
+                        "입력하지 않은 정보가 있습니다"
+                    )
+
+                    inputId.text != id -> showToast(context, "일치하지 않는 아이디입니다")
+                    inputPassword.text != password -> showToast(context, "일치하지 않는 비밀번호입니다")
+                    else -> {
+                        showToast(context, "로그인에 성공했습니다")
+                        onClickSignIn(id, password, nickname, phoneNumber)
+                    }
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(CustomTheme.colors.mainYellow),
@@ -123,8 +161,5 @@ fun SignInScreen(
 @Preview(showBackground = true)
 @Composable
 fun show() {
-    SignInScreen(
-        onClickSignIn = {},
-        onClickSignUp = {}
-    )
+
 }
