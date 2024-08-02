@@ -1,4 +1,4 @@
-package com.sopt.now.compose.presentation.auth.component
+package com.sopt.now.compose.presentation.ui.auth.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -19,19 +19,23 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
 import com.sopt.now.compose.ui.theme.CustomTheme
 
 @Composable
-fun IdTextField(
+fun AuthTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     isFocused: Boolean,
     onFocusChanged: (Boolean) -> Unit,
-    onRemove: () -> Unit
+    onRemove: () -> Unit,
+    isPassword: Boolean = false,
+    hint: String
 ) {
     Box(modifier = modifier) {
         BasicTextField(
@@ -44,6 +48,7 @@ fun IdTextField(
                 },
             textStyle = TextStyle(color = CustomTheme.colors.gray01),
             singleLine = true,
+            visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
             cursorBrush = SolidColor(CustomTheme.colors.gray01),
             decorationBox = { innerTextField ->
                 Column(
@@ -58,7 +63,7 @@ fun IdTextField(
                         Box {
                             if (value.text.isEmpty()) {
                                 Text(
-                                    text = "아이디를 입력하세요 (6~10자)",
+                                    text = hint,
                                     style = CustomTheme.typography.body1Medium,
                                     color = CustomTheme.colors.gray05
                                 )
