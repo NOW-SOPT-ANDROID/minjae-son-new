@@ -19,9 +19,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sopt.now.compose.R
 import com.sopt.now.compose.data.User
 import com.sopt.now.compose.presentation.ui.auth.component.AuthTextField
 import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
@@ -67,7 +69,7 @@ fun SignUpScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "SIGN UP",
+            text = stringResource(R.string.signup_title),
             modifier = Modifier
                 .wrapContentSize()
                 .padding(top = 30.dp),
@@ -77,7 +79,7 @@ fun SignUpScreen(
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            text = "아이디",
+            text = stringResource(R.string.signup_id_title),
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.Start),
@@ -92,13 +94,13 @@ fun SignUpScreen(
             isFocused = isIdTextFieldFocused,
             onFocusChanged = { isIdTextFieldFocused = it },
             onRemove = { inputId = TextFieldValue("") },
-            hint = "아이디를 입력하세요 (6~10자)"
+            hint = stringResource(R.string.signup_id_hint)
         )
 
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            text = "비밀번호",
+            text = stringResource(R.string.signup_password_title),
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.Start),
@@ -114,13 +116,13 @@ fun SignUpScreen(
             onFocusChanged = { isPasswordTextFieldFocused = it },
             onRemove = { inputPassword = TextFieldValue("") },
             isPassword = true,
-            hint = "비밀번호를 입력하세요 (8~12자)"
+            hint = stringResource(R.string.signup_password_hint)
         )
 
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            text = "닉네임",
+            text = stringResource(R.string.signup_nickname_title),
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.Start),
@@ -135,13 +137,13 @@ fun SignUpScreen(
             isFocused = isNicknameTextFieldFocused,
             onFocusChanged = { isNicknameTextFieldFocused = it },
             onRemove = { inputNickname = TextFieldValue("") },
-            hint = "닉네임을 입력하세요"
+            hint = stringResource(R.string.signup_nickname_hint)
         )
 
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            text = "전화번호",
+            text = stringResource(R.string.signup_phone_number_title),
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.Start),
@@ -156,7 +158,7 @@ fun SignUpScreen(
             isFocused = isPhoneNumberTextFieldFocused,
             onFocusChanged = { isPhoneNumberTextFieldFocused = it },
             onRemove = { inputPhoneNumber = TextFieldValue("") },
-            hint = "010-XXXX-XXXX"
+            hint = stringResource(R.string.signup_phone_number_hint)
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -170,14 +172,14 @@ fun SignUpScreen(
                     inputPhoneNumber.text
                 )
                 if (SignUpValidation.isSignUpValid(user)) {
-                    showToast(context, "회원가입에 성공했습니다")
+                    showToast(context, context.getString(R.string.signup_signup_success))
                     onClickSignUp(
                         inputId.text,
                         inputPassword.text,
                         inputNickname.text,
                         inputPhoneNumber.text
                     )
-                } else showToast(context, "회원가입에 실패했습니다")
+                } else showToast(context, context.getString(R.string.signup_signup_failure))
             },
             modifier = Modifier
                 .fillMaxWidth(),
@@ -185,7 +187,7 @@ fun SignUpScreen(
             shape = RoundedCornerShape(10.dp)
         ) {
             Text(
-                text = "회원가입 하기",
+                text = stringResource(R.string.signup_signup_button),
                 color = CustomTheme.colors.gray01
             )
         }

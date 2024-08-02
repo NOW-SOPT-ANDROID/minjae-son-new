@@ -24,9 +24,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sopt.now.compose.R
 import com.sopt.now.compose.presentation.ui.auth.component.AuthTextField
 import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
 import com.sopt.now.compose.presentation.utils.showToast
@@ -79,7 +81,7 @@ fun SignInScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Welcome To SOPT",
+            text = stringResource(R.string.signin_title),
             modifier = Modifier
                 .wrapContentWidth()
                 .padding(top = 30.dp),
@@ -94,7 +96,7 @@ fun SignInScreen(
             isFocused = isIdTextFieldFocused,
             onFocusChanged = { isIdTextFieldFocused = it },
             onRemove = { inputId = TextFieldValue("") },
-            hint = "아이디를 입력하세요 (6~10자)"
+            hint = stringResource(R.string.signin_id_hint)
         )
         Spacer(modifier = Modifier.height(40.dp))
         AuthTextField(
@@ -106,7 +108,7 @@ fun SignInScreen(
             onFocusChanged = { isPasswordTextFieldFocused = it },
             onRemove = { inputPassword = TextFieldValue("") },
             isPassword = true,
-            hint = "비밀번호를 입력하세요 (8~12자)"
+            hint = stringResource(R.string.signin_password_hint)
         )
         Spacer(modifier = Modifier.height(40.dp))
         Column(
@@ -117,7 +119,7 @@ fun SignInScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "회원가입",
+                text = stringResource(R.string.signin_signup_button),
                 color = CustomTheme.colors.gray04,
                 style = CustomTheme.typography.body2Medium
             )
@@ -134,13 +136,15 @@ fun SignInScreen(
                 when {
                     inputId.text.isEmpty() || inputPassword.text.isEmpty() -> showToast(
                         context,
-                        "입력하지 않은 정보가 있습니다"
+                        context.getString(R.string.signin_signin_failure_toast)
                     )
 
-                    inputId.text != id -> showToast(context, "일치하지 않는 아이디입니다")
-                    inputPassword.text != password -> showToast(context, "일치하지 않는 비밀번호입니다")
+                    inputId.text != id -> showToast(context,
+                        context.getString(R.string.signin_signin_id_incorrect))
+                    inputPassword.text != password -> showToast(context,
+                        context.getString(R.string.signin_signin_password_incorrect))
                     else -> {
-                        showToast(context, "로그인에 성공했습니다")
+                        showToast(context, context.getString(R.string.signin_signin_success_toast))
                         onClickSignIn(id, password, nickname, phoneNumber)
                     }
                 }
@@ -151,7 +155,7 @@ fun SignInScreen(
             shape = RoundedCornerShape(10.dp)
         ) {
             Text(
-                text = "로그인 하기",
+                text = stringResource(R.string.signin_signin_button),
                 color = CustomTheme.colors.gray01
             )
         }

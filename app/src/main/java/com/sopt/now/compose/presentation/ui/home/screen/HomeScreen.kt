@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
@@ -64,7 +65,7 @@ fun HomeScreen(
         }
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "아이디",
+            text = stringResource(R.string.home_id_title),
             color = CustomTheme.colors.gray01,
             style = CustomTheme.typography.head2
         )
@@ -76,7 +77,7 @@ fun HomeScreen(
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "비밀번호",
+            text = stringResource(R.string.home_password_title),
             color = CustomTheme.colors.gray01,
             style = CustomTheme.typography.head2
         )
@@ -88,7 +89,7 @@ fun HomeScreen(
         )
         Spacer(modifier = Modifier.height(30.dp))
         Text(
-            text = "전화번호",
+            text = stringResource(R.string.home_phone_number_title),
             color = CustomTheme.colors.gray01,
             style = CustomTheme.typography.head2
         )
