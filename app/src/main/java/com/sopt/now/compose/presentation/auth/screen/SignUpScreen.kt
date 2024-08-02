@@ -25,7 +25,15 @@ import com.sopt.now.compose.presentation.auth.component.IdTextField
 import com.sopt.now.compose.presentation.auth.component.NicknameTextField
 import com.sopt.now.compose.presentation.auth.component.PasswordTextField
 import com.sopt.now.compose.presentation.auth.component.PhoneNumberTextField
+import com.sopt.now.compose.presentation.auth.navigation.AuthNavigator
 import com.sopt.now.compose.ui.theme.CustomTheme
+
+@Composable
+fun SignUpRoute(
+    authNavigator: AuthNavigator
+) {
+    SignUpScreen()
+}
 
 @Composable
 fun SignUpScreen() {

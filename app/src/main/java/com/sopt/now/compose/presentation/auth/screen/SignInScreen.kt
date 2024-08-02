@@ -28,11 +28,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.presentation.auth.component.IdTextField
 import com.sopt.now.compose.presentation.auth.component.PasswordTextField
+import com.sopt.now.compose.presentation.auth.navigation.AuthNavigator
 import com.sopt.now.compose.ui.theme.CustomTheme
 
 @Composable
-fun SignInScreen() {
+fun SignInRoute(
+    authNavigator: AuthNavigator
+) {
+    SignInScreen(
+        onClickSignIn = {authNavigator.navigateToHome()},
+        onClickSignUp = {authNavigator.navigateToSignUp()}
+    )
+}
 
+@Composable
+fun SignInScreen(
+    onClickSignIn: () -> Unit,
+    onClickSignUp: () -> Unit
+) {
     var inputId by remember { mutableStateOf(TextFieldValue("")) }
     var inputPassword by remember { mutableStateOf(TextFieldValue("")) }
     var isIdTextFieldFocused by remember { mutableStateOf(false) }
@@ -76,7 +89,7 @@ fun SignInScreen() {
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.End)
-                .clickable { /* TODO : 회원가입으로 이동 */ },
+                .clickable { onClickSignUp() },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -93,7 +106,7 @@ fun SignInScreen() {
         }
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = { /* TODO : 로그인 성공 시, 메인화면으로 이동 */ },
+            onClick = { onClickSignIn() },
             modifier = Modifier
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(CustomTheme.colors.mainYellow),
@@ -110,5 +123,8 @@ fun SignInScreen() {
 @Preview(showBackground = true)
 @Composable
 fun show() {
-    SignInScreen()
+    SignInScreen(
+        onClickSignIn = {},
+        onClickSignUp = {}
+    )
 }
