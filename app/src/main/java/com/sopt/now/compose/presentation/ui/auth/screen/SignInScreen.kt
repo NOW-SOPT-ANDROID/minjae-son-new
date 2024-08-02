@@ -1,5 +1,6 @@
 package com.sopt.now.compose.presentation.ui.auth.screen
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -30,6 +31,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
 import com.sopt.now.compose.presentation.ui.auth.component.AuthTextField
+import com.sopt.now.compose.presentation.ui.auth.component.SignInButton
+import com.sopt.now.compose.presentation.ui.auth.component.SignUpTextButton
 import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
 import com.sopt.now.compose.presentation.utils.showToast
 import com.sopt.now.compose.ui.theme.CustomTheme
@@ -111,54 +114,23 @@ fun SignInScreen(
             hint = stringResource(R.string.signin_password_hint)
         )
         Spacer(modifier = Modifier.height(40.dp))
-        Column(
+        SignUpTextButton(
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.End)
-                .clickable { onClickSignUp() },
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = stringResource(R.string.signin_signup_button),
-                color = CustomTheme.colors.gray04,
-                style = CustomTheme.typography.body2Medium
-            )
-            Box(
-                modifier = Modifier
-                    .height(1.dp)
-                    .width(60.dp)
-                    .background(CustomTheme.colors.gray04)
-            )
-        }
+                .clickable { onClickSignUp() }
+        )
         Spacer(modifier = Modifier.weight(1f))
-        Button(
-            onClick = {
-                when {
-                    inputId.text.isEmpty() || inputPassword.text.isEmpty() -> showToast(
-                        context,
-                        context.getString(R.string.signin_signin_failure_toast)
-                    )
-
-                    inputId.text != id -> showToast(context,
-                        context.getString(R.string.signin_signin_id_incorrect))
-                    inputPassword.text != password -> showToast(context,
-                        context.getString(R.string.signin_signin_password_incorrect))
-                    else -> {
-                        showToast(context, context.getString(R.string.signin_signin_success_toast))
-                        onClickSignIn(id, password, nickname, phoneNumber)
-                    }
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(CustomTheme.colors.mainYellow),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.signin_signin_button),
-                color = CustomTheme.colors.gray01
-            )
-        }
+        SignInButton(
+            context = context,
+            inputId = inputId.text,
+            inputPassword = inputPassword.text,
+            id = id,
+            password = password,
+            nickname = nickname,
+            phoneNumber = phoneNumber,
+            onClickSignIn = onClickSignIn
+        )
     }
 }
 
