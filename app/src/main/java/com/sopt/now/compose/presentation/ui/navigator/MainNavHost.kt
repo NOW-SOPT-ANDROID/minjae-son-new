@@ -1,4 +1,4 @@
-package com.sopt.now.compose.presentation.navigator
+package com.sopt.now.compose.presentation.ui.navigator
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -8,26 +8,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.sopt.now.compose.presentation.auth.navigation.authNavGraph
-import com.sopt.now.compose.presentation.auth.navigation.AuthNavigator
-import com.sopt.now.compose.presentation.home.navigation.homeNavGraph
-import com.sopt.now.compose.presentation.home.navigation.HomeNavigator
+import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
+import com.sopt.now.compose.presentation.ui.auth.navigation.authNavGraph
+import com.sopt.now.compose.presentation.ui.home.navigation.HomeNavigator
+import com.sopt.now.compose.presentation.ui.home.navigation.homeNavGraph
 
 @Composable
 fun MainNavHost(
-    navController: NavHostController,
+    navHostController: NavHostController,
     modifier: Modifier = Modifier,
     authNavigator: AuthNavigator,
     homeNavigator: HomeNavigator
-    ) {
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
         NavHost(
-            navController = navController,
-            startDestination = "signIn"
+            navController = navHostController,
+            startDestination = "signIn/{id}/{password}/{nickname}/{phoneNumber}"
         ) {
             authNavGraph(authNavigator, homeNavigator)
             homeNavGraph(homeNavigator)

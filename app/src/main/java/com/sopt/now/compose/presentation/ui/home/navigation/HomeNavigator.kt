@@ -1,4 +1,4 @@
-package com.sopt.now.compose.presentation.home.navigation
+package com.sopt.now.compose.presentation.ui.home.navigation
 
 import androidx.navigation.NavController
 
