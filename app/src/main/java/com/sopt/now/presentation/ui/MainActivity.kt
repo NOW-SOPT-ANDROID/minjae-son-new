@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivityMainBinding
+import com.sopt.now.presentation.utils.KeyStorage
 import com.sopt.now.presentation.utils.getParcelable
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUserInfo() {
-        user = intent.getParcelable("user", User::class.java)
+        user = intent.getParcelable(KeyStorage.USER_INFO, User::class.java)
     }
 
     private fun showUserInfo() {

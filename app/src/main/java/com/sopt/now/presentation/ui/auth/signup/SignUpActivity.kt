@@ -7,6 +7,7 @@ import com.sopt.now.R
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivitySignupBinding
 import com.sopt.now.presentation.ui.auth.signin.SignInActivity
+import com.sopt.now.presentation.utils.KeyStorage
 import com.sopt.now.presentation.utils.showToast
 
 class SignUpActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun navigateToSignIn(user: User) {
         val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
-        intent.putExtra("user", user)
+        intent.putExtra(KeyStorage.USER_INFO, user)
         startActivity(intent)
     }
 }
