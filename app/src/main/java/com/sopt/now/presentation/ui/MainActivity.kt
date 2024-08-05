@@ -6,7 +6,7 @@ import com.sopt.now.R
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivityMainBinding
 import com.sopt.now.presentation.utils.KeyStorage
-import com.sopt.now.presentation.utils.getParcelable
+import com.sopt.now.presentation.utils.getSafeParcelable
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUserInfo() {
-        user = intent.getParcelable(KeyStorage.USER_INFO, User::class.java) ?: User(
+        user = intent.getSafeParcelable(KeyStorage.USER_INFO, User::class.java) ?: User(
             getString(R.string.mypage_id_basic),
             getString(R.string.mypage_password_basic),
             getString(R.string.mypage_nickname_basic),

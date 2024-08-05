@@ -9,7 +9,7 @@ import com.sopt.now.databinding.ActivitySigninBinding
 import com.sopt.now.presentation.ui.MainActivity
 import com.sopt.now.presentation.ui.auth.signup.SignUpActivity
 import com.sopt.now.presentation.utils.KeyStorage
-import com.sopt.now.presentation.utils.getParcelable
+import com.sopt.now.presentation.utils.getSafeParcelable
 import com.sopt.now.presentation.utils.showToast
 
 class SignInActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun getUserInfo() {
-        user = intent.getParcelable(KeyStorage.USER_INFO, User::class.java)
+        user = intent.getSafeParcelable(KeyStorage.USER_INFO, User::class.java)
     }
 
     private fun onSignInClicked() {
