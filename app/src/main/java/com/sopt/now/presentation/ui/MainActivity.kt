@@ -2,6 +2,7 @@ package com.sopt.now.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sopt.now.R
 import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivityMainBinding
 import com.sopt.now.presentation.utils.KeyStorage
@@ -20,7 +21,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUserInfo() {
-        user = intent.getParcelable(KeyStorage.USER_INFO, User::class.java)
+        user = intent.getParcelable(KeyStorage.USER_INFO, User::class.java) ?: User(
+            getString(R.string.mypage_id_basic),
+            getString(R.string.mypage_password_basic),
+            getString(R.string.mypage_nickname_basic),
+            getString(R.string.mypage_phone_number_basic)
+        )
     }
 
     private fun showUserInfo() {
