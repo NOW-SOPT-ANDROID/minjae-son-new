@@ -40,7 +40,7 @@ fun AuthTextField(
     Box(modifier = modifier) {
         BasicTextField(
             value = value,
-            onValueChange = { onValueChange(it) },
+            onValueChange = onValueChange,
             modifier = Modifier
                 .fillMaxWidth()
                 .onFocusChanged { focusState ->
