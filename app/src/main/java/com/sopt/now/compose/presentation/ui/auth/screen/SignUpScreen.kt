@@ -68,11 +68,12 @@ fun SignUpScreen(
             .padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(30.dp))
+
         Text(
             text = stringResource(R.string.signup_title),
             modifier = Modifier
-                .wrapContentSize()
-                .padding(top = 30.dp),
+                .wrapContentSize(),
             style = CustomTheme.typography.head1
         )
 
