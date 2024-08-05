@@ -199,14 +199,13 @@ fun setUser(
     inputPassword: String,
     inputNickname: String,
     inputPhoneNumber: String
-): User {
-    return User(
-        id = inputId,
-        password = inputPassword,
-        nickname = inputNickname,
-        phoneNumber = inputPhoneNumber
-    )
-}
+): User = User(
+    id = inputId,
+    password = inputPassword,
+    nickname = inputNickname,
+    phoneNumber = inputPhoneNumber
+)
+
 
 @Preview(showBackground = true)
 @Composable
