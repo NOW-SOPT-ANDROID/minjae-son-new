@@ -6,6 +6,6 @@ class HomeNavigator(
     private val navController: NavController
 ) {
     fun navigateToBack() {
-        navController.popBackStack()
+        navController.navigateUp()
     }
 }

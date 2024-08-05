@@ -18,6 +18,6 @@ class AuthNavigator(
     }
 
     fun navigateToBack() {
-        navController.popBackStack()
+        navController.navigateUp()
     }
 }
