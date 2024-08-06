@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signInActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.MainActivity">
+
+    <TextView
+        android:id="@+id/tvSignInTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50.dp"
+        android:text="@string/signin_title"
+        android:textSize="25.sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSignInId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30.dp"
+        android:layout_marginTop="70.dp"
+        android:text="@string/signin_id_title"
+        android:textSize="20.sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignInTitle" />
+
+    <EditText
+        android:id="@+id/etSignInId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:layout_marginTop="10.dp"
+        android:hint="@string/signin_id_hint"
+        android:backgroundTint="@color/gray04"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignInId" />
+
+    <TextView
+        android:id="@+id/tvSignInPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30.dp"
+        android:layout_marginTop="20.dp"
+        android:text="@string/signin_pw_title"
+        android:textSize="20.sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignInId" />
+
+    <EditText
+        android:id="@+id/etSignInPw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:layout_marginTop="10.dp"
+        android:hint="@string/signin_pw_hint"
+        android:backgroundTint="@color/gray04"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignInPw"/>
+
+    <Button
+        android:id="@+id/btnSignInSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:layout_marginTop="240.dp"
+        android:text="@string/signin_signin_button"
+        android:textColor="@color/gray01"
+        android:backgroundTint="@color/mainYellow"
+        app:layout_constraintTop_toBottomOf="@+id/etSignInPw"/>
+
+    <Button
+        android:id="@+id/btnSignInSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:layout_marginTop="5.dp"
+        android:text="@string/signin_signup_button"
+        android:textColor="@color/gray01"
+        android:backgroundTint="@color/mainYellow"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignInSignIn"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

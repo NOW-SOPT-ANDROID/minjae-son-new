@@ -2,18 +2,121 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivMyPageProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60.dp"
+        android:layout_marginStart="60.dp"
+        android:src="@drawable/ic_android_black"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
+    <TextView
+        android:id="@+id/tvMyPageNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40.dp"
+        android:text="@string/mypage_user_nickname"
+        android:textSize="20.sp"
+        app:layout_constraintTop_toTopOf="@+id/ivMyPageProfile"
+        app:layout_constraintBottom_toBottomOf="@id/ivMyPageProfile"
+        app:layout_constraintStart_toEndOf="@+id/ivMyPageProfile" />
+
+    <TextView
+        android:id="@+id/tvMyPageIdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60.dp"
+        android:layout_marginTop="30.dp"
+        android:text="@string/mypage_user_id_title"
+        android:textSize="20.sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMyPageProfile"/>
+
+    <TextView
+        android:id="@+id/tvMyPageIdContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mypage_user_id_content"
+        android:textSize="15.sp"
+        app:layout_constraintStart_toEndOf="@+id/tvMyPageIdTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvMyPageIdTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMyPageIdTitle"/>
+
+    <TextView
+        android:id="@+id/tvMyPagePwTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.dp"
+        android:text="@string/mypage_user_pw_title"
+        android:textSize="20.sp"
+        app:layout_constraintStart_toStartOf="@+id/tvMyPageIdTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyPageIdTitle"/>
+
+    <TextView
+        android:id="@+id/tvMyPagePwContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mypage_user_pw_content"
+        android:textSize="15.sp"
+        app:layout_constraintStart_toEndOf="@+id/tvMyPagePwTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvMyPagePwTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMyPagePwTitle"/>
+
+    <TextView
+        android:id="@+id/tvMyPagePhoneNumberTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.dp"
+        android:text="@string/mypage_user_phone_number_title"
+        android:textSize="20.sp"
+        app:layout_constraintStart_toStartOf="@id/tvMyPagePwTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyPagePwTitle"/>
+
+    <TextView
+        android:id="@+id/tvMyPagePhoneNumberContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mypage_user_phone_number_content"
+        android:textSize="15.sp"
+        app:layout_constraintStart_toEndOf="@+id/tvMyPagePhoneNumberTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvMyPagePhoneNumberTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMyPagePhoneNumberTitle"/>
+
+    <Button
+        android:id="@+id/btnMyPageNicknameChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240.dp"
+        android:layout_marginHorizontal="30.dp"
+        android:text="@string/mypage_nickname_change_button"
+        android:textColor="@color/gray01"
+        android:backgroundTint="@color/mainYellow"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyPagePhoneNumberTitle"/>
+
+    <Button
+        android:id="@+id/btnMyPageLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:text="@string/mypage_logout_button"
+        android:textColor="@color/gray01"
+        android:backgroundTint="@color/mainYellow"
+        app:layout_constraintTop_toBottomOf="@+id/btnMyPageNicknameChange"/>
+
+    <Button
+        android:id="@+id/btnMyPageRevoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30.dp"
+        android:text="@string/mypage_revoke_button"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toBottomOf="@+id/btnMyPageLogout"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
