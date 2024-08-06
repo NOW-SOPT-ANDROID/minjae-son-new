@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -110,8 +111,8 @@ fun SignInScreen(
             isFocused = isPasswordTextFieldFocused,
             onFocusChanged = { isPasswordTextFieldFocused = it },
             onRemove = { inputPassword = TextFieldValue("") },
-            isPassword = true,
-            hint = stringResource(R.string.signin_password_hint)
+            hint = stringResource(R.string.signin_password_hint),
+            visualTransformation = PasswordVisualTransformation()
         )
         Spacer(modifier = Modifier.height(40.dp))
         SignUpTextButton(

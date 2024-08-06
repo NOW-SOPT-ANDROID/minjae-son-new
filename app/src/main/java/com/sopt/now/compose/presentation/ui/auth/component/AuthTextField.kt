@@ -34,8 +34,8 @@ fun AuthTextField(
     isFocused: Boolean,
     onFocusChanged: (Boolean) -> Unit,
     onRemove: () -> Unit,
-    isPassword: Boolean = false,
-    hint: String
+    hint: String,
+    visualTransformation: VisualTransformation = VisualTransformation.None
 ) {
     Box(modifier = modifier) {
         BasicTextField(
@@ -48,7 +48,7 @@ fun AuthTextField(
                 },
             textStyle = TextStyle(color = CustomTheme.colors.gray01),
             singleLine = true,
-            visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
+            visualTransformation = visualTransformation,
             cursorBrush = SolidColor(CustomTheme.colors.gray01),
             decorationBox = { innerTextField ->
                 Column(
