@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">NOW SOPT Android</string>
+
+    <!-- SignIn -->
+    <string name="signin_title">Welcome To SOPT</string>
+    <string name="signin_id_hint">아이디를 입력하세요 (6~10자)</string>
+    <string name="signin_password_hint">비밀번호를 입력하세요 (8~12자)</string>
+    <string name="signin_signup_button">회원가입</string>
+    <string name="signin_signin_button">로그인 하기</string>
+    <string name="signin_signin_failure_toast">입력하지 않은 정보가 있습니다</string>
+    <string name="signin_signin_id_incorrect">일치하지 않는 아이디입니다</string>
+    <string name="signin_signin_password_incorrect">일치하지 않는 비밀번호입니다</string>
+    <string name="signin_signin_success_toast">로그인에 성공했습니다</string>
+
+    <!-- SignUp -->
+    <string name="signup_title">SIGN UP</string>
+    <string name="signup_id_title">아이디</string>
+    <string name="signup_id_hint">아이디를 입력하세요 (6~10자)</string>
+    <string name="signup_password_title">비밀번호</string>
+    <string name="signup_password_hint">비밀번호를 입력하세요 (8~12자)</string>
+    <string name="signup_nickname_title">닉네임</string>
+    <string name="signup_nickname_hint">닉네임을 입력하세요</string>
+    <string name="signup_phone_number_title">전화번호</string>
+    <string name="signup_phone_number_hint">010-XXXX-XXXX</string>
+    <string name="signup_signup_success">회원가입에 성공했습니다</string>
+    <string name="signup_signup_failure">회원가입에 실패했습니다</string>
+    <string name="signup_signup_button">회원가입 하기</string>
+
+    <!-- Home -->
+    <string name="home_id_title">아이디</string>
+    <string name="home_password_title">비밀번호</string>
+    <string name="home_phone_number_title">전화번호</string>
 </resources>
