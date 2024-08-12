@@ -129,10 +129,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="100.dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/mainYellow"
         android:text="@string/signup_signup_button"
         android:textColor="@color/gray01"
-        app:layout_constraintTop_toBottomOf="@+id/etSignUpPhoneNumber" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
