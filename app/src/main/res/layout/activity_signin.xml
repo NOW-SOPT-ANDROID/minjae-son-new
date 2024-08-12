@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="10.dp"
-        android:hint="@string/signin_id_hint"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signin_id_hint"
         android:inputType="text"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,13 +60,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="10.dp"
-        android:hint="@string/signin_pw_hint"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signin_pw_hint"
         android:inputType="textPassword"
         android:maxLines="1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSignInPw"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignInPw" />
 
     <Button
         android:id="@+id/btnSignInSignIn"
@@ -74,10 +74,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="240.dp"
+        android:backgroundTint="@color/mainYellow"
         android:text="@string/signin_signin_button"
         android:textColor="@color/gray01"
-        android:backgroundTint="@color/mainYellow"
-        app:layout_constraintTop_toBottomOf="@+id/etSignInPw"/>
+        app:layout_constraintTop_toBottomOf="@+id/etSignInPw" />
 
     <Button
         android:id="@+id/btnSignInSignUp"
@@ -85,9 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
+        android:backgroundTint="@color/mainYellow"
         android:text="@string/signin_signup_button"
         android:textColor="@color/gray01"
-        android:backgroundTint="@color/mainYellow"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignInSignIn"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnSignInSignIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
