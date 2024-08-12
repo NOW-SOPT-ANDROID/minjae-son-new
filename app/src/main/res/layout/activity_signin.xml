@@ -76,21 +76,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:layout_marginTop="240.dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/mainYellow"
         android:text="@string/signin_signin_button"
         android:textColor="@color/gray01"
-        app:layout_constraintTop_toBottomOf="@+id/etSignInPw" />
+        app:layout_constraintBottom_toTopOf="@id/btnSignInSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnSignInSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
-        android:layout_marginTop="5.dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/mainYellow"
         android:text="@string/signin_signup_button"
         android:textColor="@color/gray01"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignInSignIn" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
