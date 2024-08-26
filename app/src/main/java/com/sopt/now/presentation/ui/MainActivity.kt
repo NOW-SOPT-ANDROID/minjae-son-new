@@ -1,6 +1,9 @@
 package com.sopt.now.presentation.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.R
 import com.sopt.now.data.User
@@ -11,6 +14,8 @@ import com.sopt.now.presentation.utils.getSafeParcelable
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var user: User? = null
+    private var backPressedTime: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,6 +23,29 @@ class MainActivity : AppCompatActivity() {
 
         getUserInfo()
         showUserInfo()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (System.currentTimeMillis() - backPressedTime < 2000) {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+
+                    val intent = Intent(Intent.ACTION_MAIN)
+                    intent.addCategory(Intent.CATEGORY_HOME)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(
+                        this@MainActivity,
+                        R.string.mypage_back_handler_caution,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    backPressedTime = System.currentTimeMillis()
+                }
+            }
+        })
+
     }
 
     private fun getUserInfo() {
