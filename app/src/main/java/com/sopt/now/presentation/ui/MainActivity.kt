@@ -10,6 +10,7 @@ import com.sopt.now.data.User
 import com.sopt.now.databinding.ActivityMainBinding
 import com.sopt.now.presentation.utils.KeyStorage
 import com.sopt.now.presentation.utils.getSafeParcelable
+import com.sopt.now.presentation.utils.showToast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,11 +37,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        R.string.mypage_back_handler_caution,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToast(context = this@MainActivity, message = getString(R.string.mypage_back_handler_caution))
                     backPressedTime = System.currentTimeMillis()
                 }
             }
