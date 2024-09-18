@@ -2,7 +2,6 @@ package com.sopt.now.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.now.R
@@ -37,7 +36,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    showToast(context = this@MainActivity, message = getString(R.string.mypage_back_handler_caution))
+                    showToast(
+                        context = this@MainActivity,
+                        message = getString(R.string.mypage_back_handler_caution)
+                    )
                     backPressedTime = System.currentTimeMillis()
                 }
             }
