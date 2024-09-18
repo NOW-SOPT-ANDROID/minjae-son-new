@@ -82,23 +82,18 @@ fun SignUpScreen(
         contentAlignment = Alignment.TopCenter
     ) {
         LazyColumn(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 80.dp),
+            modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.Start
         ) {
             item {
                 Spacer(modifier = Modifier.height(30.dp))
-
                 Text(
                     text = stringResource(R.string.signup_title),
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     style = CustomTheme.typography.head1
                 )
-
                 Spacer(modifier = Modifier.height(30.dp))
-
                 Text(
                     text = stringResource(R.string.signup_id_title),
                     style = CustomTheme.typography.head2
@@ -116,9 +111,7 @@ fun SignUpScreen(
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                     keyboardActions = KeyboardActions(onNext = { passwordFocusRequester.requestFocus() })
                 )
-
                 Spacer(modifier = Modifier.height(30.dp))
-
                 Text(
                     text = stringResource(R.string.signup_password_title),
                     style = CustomTheme.typography.head2
@@ -137,9 +130,7 @@ fun SignUpScreen(
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                     keyboardActions = KeyboardActions(onNext = { nicknameFocusRequester.requestFocus() })
                 )
-
                 Spacer(modifier = Modifier.height(30.dp))
-
                 Text(
                     text = stringResource(R.string.signup_nickname_title),
                     style = CustomTheme.typography.head2
@@ -157,9 +148,7 @@ fun SignUpScreen(
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                     keyboardActions = KeyboardActions(onNext = { phoneNumberFocusRequester.requestFocus() })
                 )
-
                 Spacer(modifier = Modifier.height(30.dp))
-
                 Text(
                     text = stringResource(R.string.signup_phone_number_title),
                     style = CustomTheme.typography.head2
@@ -175,6 +164,7 @@ fun SignUpScreen(
                     hint = stringResource(R.string.signup_phone_number_hint),
                     focusRequester = phoneNumberFocusRequester
                 )
+                Spacer(modifier = Modifier.height(80.dp))
             }
         }
         Button(

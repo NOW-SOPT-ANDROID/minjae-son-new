@@ -31,6 +31,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -90,11 +91,11 @@ fun SignInScreen(
             .padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(30.dp))
         Text(
             text = stringResource(R.string.signin_title),
-            modifier = Modifier
-                .wrapContentWidth()
-                .padding(top = 30.dp),
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
             style = CustomTheme.typography.head1
         )
         Spacer(modifier = Modifier.height(80.dp))
