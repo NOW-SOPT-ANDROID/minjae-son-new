@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -21,8 +23,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
@@ -74,6 +79,9 @@ fun SignInScreen(
     var isIdTextFieldFocused by remember { mutableStateOf(false) }
     var isPasswordTextFieldFocused by remember { mutableStateOf(false) }
 
+    val idFocusRequester = remember { FocusRequester() }
+    val passwordFocusRequester = remember { FocusRequester() }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -96,7 +104,10 @@ fun SignInScreen(
             isFocused = isIdTextFieldFocused,
             onFocusChanged = { isIdTextFieldFocused = it },
             onRemove = { inputId = TextFieldValue("") },
-            hint = stringResource(R.string.signin_id_hint)
+            hint = stringResource(R.string.signin_id_hint),
+            focusRequester = idFocusRequester,
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            keyboardActions = KeyboardActions(onNext = { passwordFocusRequester.requestFocus() })
         )
         Spacer(modifier = Modifier.height(40.dp))
         AuthTextField(
@@ -108,7 +119,8 @@ fun SignInScreen(
             onFocusChanged = { isPasswordTextFieldFocused = it },
             onRemove = { inputPassword = TextFieldValue("") },
             hint = stringResource(R.string.signin_password_hint),
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            focusRequester = passwordFocusRequester,
         )
         Spacer(modifier = Modifier.height(40.dp))
         Text(
@@ -126,6 +138,8 @@ fun SignInScreen(
         )
         Spacer(modifier = Modifier.weight(1f))
         SignInButton(
+            modifier = Modifier
+                .fillMaxWidth(),
             context = context,
             inputId = inputId.text,
             inputPassword = inputPassword.text,
@@ -140,6 +154,7 @@ fun SignInScreen(
 
 @Composable
 fun SignInButton(
+    modifier: Modifier = Modifier,
     context: Context,
     inputId: String,
     inputPassword: String,
@@ -173,8 +188,7 @@ fun SignInButton(
                 }
             }
         },
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         colors = ButtonDefaults.buttonColors(CustomTheme.colors.mainYellow),
         shape = RoundedCornerShape(10.dp)
     ) {

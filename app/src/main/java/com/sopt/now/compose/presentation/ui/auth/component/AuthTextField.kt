@@ -12,11 +12,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
@@ -36,7 +40,10 @@ fun AuthTextField(
     onFocusChanged: (Boolean) -> Unit,
     onRemove: () -> Unit,
     hint: String,
-    visualTransformation: VisualTransformation = VisualTransformation.None
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    focusRequester: FocusRequester = FocusRequester(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     Box(modifier = modifier) {
         BasicTextField(
@@ -44,10 +51,13 @@ fun AuthTextField(
             onValueChange = onValueChange,
             modifier = Modifier
                 .fillMaxWidth()
+                .focusRequester(focusRequester)
                 .onFocusChanged { focusState ->
                     onFocusChanged(focusState.isFocused)
                 },
             textStyle = TextStyle(color = CustomTheme.colors.gray01),
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             singleLine = true,
             visualTransformation = visualTransformation,
             cursorBrush = SolidColor(CustomTheme.colors.gray01),

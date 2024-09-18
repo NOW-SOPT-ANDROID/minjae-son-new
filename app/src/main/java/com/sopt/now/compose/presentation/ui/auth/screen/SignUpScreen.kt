@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -18,8 +20,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -63,6 +68,11 @@ fun SignUpScreen(
     var isNicknameTextFieldFocused by remember { mutableStateOf(false) }
     var isPhoneNumberTextFieldFocused by remember { mutableStateOf(false) }
 
+    val idFocusRequester= remember { FocusRequester() }
+    val passwordFocusRequester= remember { FocusRequester() }
+    val nicknameFocusRequester= remember { FocusRequester() }
+    val phoneNumberFocusRequester= remember { FocusRequester() }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -96,7 +106,10 @@ fun SignUpScreen(
             isFocused = isIdTextFieldFocused,
             onFocusChanged = { isIdTextFieldFocused = it },
             onRemove = { inputId = TextFieldValue("") },
-            hint = stringResource(R.string.signup_id_hint)
+            hint = stringResource(R.string.signup_id_hint),
+            focusRequester = idFocusRequester,
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            keyboardActions = KeyboardActions(onNext = { passwordFocusRequester.requestFocus() })
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -118,7 +131,10 @@ fun SignUpScreen(
             onFocusChanged = { isPasswordTextFieldFocused = it },
             onRemove = { inputPassword = TextFieldValue("") },
             hint = stringResource(R.string.signup_password_hint),
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            focusRequester = passwordFocusRequester,
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            keyboardActions = KeyboardActions(onNext = { nicknameFocusRequester.requestFocus() })
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -139,7 +155,10 @@ fun SignUpScreen(
             isFocused = isNicknameTextFieldFocused,
             onFocusChanged = { isNicknameTextFieldFocused = it },
             onRemove = { inputNickname = TextFieldValue("") },
-            hint = stringResource(R.string.signup_nickname_hint)
+            hint = stringResource(R.string.signup_nickname_hint),
+            focusRequester = nicknameFocusRequester,
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            keyboardActions = KeyboardActions(onNext = { phoneNumberFocusRequester.requestFocus() })
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -160,7 +179,8 @@ fun SignUpScreen(
             isFocused = isPhoneNumberTextFieldFocused,
             onFocusChanged = { isPhoneNumberTextFieldFocused = it },
             onRemove = { inputPhoneNumber = TextFieldValue("") },
-            hint = stringResource(R.string.signup_phone_number_hint)
+            hint = stringResource(R.string.signup_phone_number_hint),
+            focusRequester = phoneNumberFocusRequester
         )
 
         Spacer(modifier = Modifier.weight(1f))
