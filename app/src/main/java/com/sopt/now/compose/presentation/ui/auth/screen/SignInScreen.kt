@@ -2,6 +2,7 @@ package com.sopt.now.compose.presentation.ui.auth.screen
 
 import android.content.Context
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -114,7 +115,11 @@ fun SignInScreen(
             text = stringResource(R.string.signin_signup_button),
             modifier = Modifier
                 .align(Alignment.End)
-                .clickable { onClickSignUp() },
+                .clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                    onClick = onClickSignUp
+                ),
             color = CustomTheme.colors.gray04,
             textDecoration = TextDecoration.Underline,
             style = CustomTheme.typography.body2Medium
