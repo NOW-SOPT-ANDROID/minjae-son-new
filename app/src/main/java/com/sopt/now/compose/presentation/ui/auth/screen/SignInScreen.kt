@@ -1,17 +1,13 @@
 package com.sopt.now.compose.presentation.ui.auth.screen
 
 import android.content.Context
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -28,12 +24,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sopt.now.compose.R
 import com.sopt.now.compose.presentation.ui.auth.component.AuthTextField
-import com.sopt.now.compose.presentation.ui.auth.component.SignInButton
-import com.sopt.now.compose.presentation.ui.auth.component.SignUpTextButton
 import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
 import com.sopt.now.compose.presentation.utils.showToast
 import com.sopt.now.compose.ui.theme.CustomTheme
@@ -115,11 +110,14 @@ fun SignInScreen(
             visualTransformation = PasswordVisualTransformation()
         )
         Spacer(modifier = Modifier.height(40.dp))
-        SignUpTextButton(
+        Text(
+            text = stringResource(R.string.signin_signup_button),
             modifier = Modifier
-                .wrapContentSize()
                 .align(Alignment.End)
-                .clickable { onClickSignUp() }
+                .clickable { onClickSignUp() },
+            color = CustomTheme.colors.gray04,
+            textDecoration = TextDecoration.Underline,
+            style = CustomTheme.typography.body2Medium
         )
         Spacer(modifier = Modifier.weight(1f))
         SignInButton(
@@ -131,6 +129,53 @@ fun SignInScreen(
             nickname = nickname,
             phoneNumber = phoneNumber,
             onClickSignIn = onClickSignIn
+        )
+    }
+}
+
+@Composable
+fun SignInButton(
+    context: Context,
+    inputId: String,
+    inputPassword: String,
+    id: String,
+    password: String,
+    nickname: String,
+    phoneNumber: String,
+    onClickSignIn: (String, String, String, String) -> Unit
+) {
+    Button(
+        onClick = {
+            when {
+                inputId.isEmpty() || inputPassword.isEmpty() -> showToast(
+                    context,
+                    context.getString(R.string.signin_signin_failure_toast)
+                )
+
+                inputId != id -> showToast(
+                    context,
+                    context.getString(R.string.signin_signin_id_incorrect)
+                )
+
+                inputPassword != password -> showToast(
+                    context,
+                    context.getString(R.string.signin_signin_password_incorrect)
+                )
+
+                else -> {
+                    showToast(context, context.getString(R.string.signin_signin_success_toast))
+                    onClickSignIn(id, password, nickname, phoneNumber)
+                }
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(CustomTheme.colors.mainYellow),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.signin_signin_button),
+            color = CustomTheme.colors.gray01
         )
     }
 }
