@@ -3,6 +3,7 @@ package com.sopt.now.compose.presentation.ui.home.screen
 import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -72,6 +73,7 @@ fun HomeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = CustomTheme.colors.white)
             .padding(40.dp),
         horizontalAlignment = Alignment.Start
     ) {

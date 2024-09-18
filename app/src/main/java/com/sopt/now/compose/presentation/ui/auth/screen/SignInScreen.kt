@@ -1,6 +1,7 @@
 package com.sopt.now.compose.presentation.ui.auth.screen
 
 import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
@@ -85,6 +86,7 @@ fun SignInScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = CustomTheme.colors.white)
             .padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

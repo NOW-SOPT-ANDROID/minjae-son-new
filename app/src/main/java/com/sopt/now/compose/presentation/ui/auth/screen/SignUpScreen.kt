@@ -1,5 +1,6 @@
 package com.sopt.now.compose.presentation.ui.auth.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -76,6 +77,7 @@ fun SignUpScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = CustomTheme.colors.white)
             .padding(30.dp),
         contentAlignment = Alignment.TopCenter
     ) {
