@@ -61,7 +61,9 @@ fun AuthTextField(
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Box {
+                        Box(
+                            modifier = Modifier.weight(1f)
+                        ) {
                             if (value.text.isEmpty()) {
                                 Text(
                                     text = hint,
@@ -71,7 +73,6 @@ fun AuthTextField(
                             }
                             innerTextField()
                         }
-                        Spacer(modifier = Modifier.weight(1f))
                         Image(
                             painter = painterResource(id = R.drawable.ic_textfield_clear),
                             contentDescription = null,
