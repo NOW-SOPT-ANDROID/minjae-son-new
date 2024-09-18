@@ -29,7 +29,7 @@ fun MainNavHost(
             navController = navHostController,
             startDestination = "signIn/{id}/{password}/{nickname}/{phoneNumber}"
         ) {
-            authNavGraph(authNavigator, homeNavigator)
+            authNavGraph(authNavigator)
             homeNavGraph(homeNavigator)
         }
     }

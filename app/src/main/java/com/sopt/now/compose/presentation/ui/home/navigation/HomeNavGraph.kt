@@ -6,9 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.sopt.now.compose.presentation.ui.home.screen.HomeRoute
 
-fun NavGraphBuilder.homeNavGraph(
-    homeNavigator: HomeNavigator
-) {
+fun NavGraphBuilder.homeNavGraph(homeNavigator: HomeNavigator) {
+
     composable(
         route = "home/{id}/{password}/{nickname}/{phoneNumber}",
         arguments = listOf(
