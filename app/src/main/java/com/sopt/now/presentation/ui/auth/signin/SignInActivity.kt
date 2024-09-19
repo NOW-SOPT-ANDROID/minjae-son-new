@@ -21,10 +21,9 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySigninBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this)[SignInViewModel::class.java]
+        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
 
         getUserInfo()
-        setupObservers()
         onSignInClicked()
         onSignUpClicked()
     }
@@ -38,7 +37,7 @@ class SignInActivity : AppCompatActivity() {
         viewModel.signInState.observe(this) { isSuccess ->
             if (isSuccess) {
                 showToast(this, getString(R.string.signin_signin_success))
-                navigateToMain()
+                navigateToMain(viewModel.user.value)
             } else {
                 showToast(this, getString(R.string.signin_signin_failure))
             }
@@ -52,6 +51,7 @@ class SignInActivity : AppCompatActivity() {
                 val inputPassword = etSignInPw.text.toString()
                 viewModel.validateSignIn(inputId, inputPassword)
             }
+            setupObservers()
         }
     }
 
@@ -61,9 +61,9 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToMain() {
+    private fun navigateToMain(user: User?) {
         val intent = Intent(this@SignInActivity, MainActivity::class.java)
-        intent.putExtra(KeyStorage.USER_INFO, viewModel.user.value)
+        intent.putExtra(KeyStorage.USER_INFO, user)
         startActivity(intent)
     }
 

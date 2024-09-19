@@ -9,7 +9,7 @@ class SignInViewModel : ViewModel() {
     private val _user = MutableLiveData<User?>()
     val user: LiveData<User?> = _user
 
-    private val _signInState = MutableLiveData<Boolean>()
+    private val _signInState = MutableLiveData(false)
     val signInState: LiveData<Boolean> = _signInState
 
     fun setUser(user: User?) {
@@ -17,10 +17,6 @@ class SignInViewModel : ViewModel() {
     }
 
     fun validateSignIn(inputId: String, inputPassword: String) {
-        if (inputId == _user.value?.id && inputPassword == _user.value?.password) {
-            _signInState.value = true
-        } else {
-            _signInState.value = false
-        }
+        _signInState.value = inputId == _user.value?.id && inputPassword == _user.value?.password
     }
 }
