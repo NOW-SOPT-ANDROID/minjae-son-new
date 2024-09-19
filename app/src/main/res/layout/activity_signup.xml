@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signUpActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -26,7 +25,7 @@
         android:text="@string/signup_id_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSignUpTitle"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUpTitle" />
 
     <EditText
         android:id="@+id/etSignUpId"
@@ -34,8 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
-        android:hint="@string/signup_id_hint"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signup_id_hint"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:maxLines="1"
+        android:nextFocusForward="@id/etSignUpPw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignUpId" />
@@ -49,7 +52,7 @@
         android:text="@string/signup_pw_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSignUpId"/>
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpId" />
 
     <EditText
         android:id="@+id/etSignUpPw"
@@ -57,9 +60,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
-        android:hint="@string/signup_pw_hint"
-        android:inputType="textPassword"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signup_pw_hint"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:nextFocusForward="@id/etSignUpNickname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignUpPw" />
@@ -73,7 +79,7 @@
         android:text="@string/signup_nickname_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSignUpPw"/>
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpPw" />
 
     <EditText
         android:id="@+id/etSignUpNickname"
@@ -81,8 +87,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
-        android:hint="@string/signup_nickname_hint"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signup_nickname_hint"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:maxLines="1"
+        android:nextFocusForward="@id/etSignUpPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignUpNickname" />
@@ -96,7 +106,7 @@
         android:text="@string/signup_phone_number_title"
         android:textSize="20.sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSignUpNickname"/>
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpNickname" />
 
     <EditText
         android:id="@+id/etSignUpPhoneNumber"
@@ -104,8 +114,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="5.dp"
-        android:hint="@string/signup_phone_number_hint"
         android:backgroundTint="@color/gray04"
+        android:hint="@string/signup_phone_number_hint"
+        android:imeOptions="actionDone"
+        android:inputType="phone"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignUpPhoneNumber" />
@@ -116,10 +129,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30.dp"
         android:layout_marginTop="100.dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/mainYellow"
         android:text="@string/signup_signup_button"
         android:textColor="@color/gray01"
-        android:backgroundTint="@color/mainYellow"
-        app:layout_constraintTop_toBottomOf="@+id/etSignUpPhoneNumber" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
