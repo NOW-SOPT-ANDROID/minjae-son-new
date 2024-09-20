@@ -33,8 +33,8 @@ import com.sopt.now.compose.ui.theme.CustomTheme
 
 @Composable
 fun AuthTextField(
-    value: TextFieldValue,
-    onValueChange: (TextFieldValue) -> Unit,
+    value: String,
+    onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     isFocused: Boolean,
     onFocusChanged: (Boolean) -> Unit,
@@ -74,7 +74,7 @@ fun AuthTextField(
                         Box(
                             modifier = Modifier.weight(1f)
                         ) {
-                            if (value.text.isEmpty()) {
+                            if (value.isEmpty()) {
                                 Text(
                                     text = hint,
                                     style = CustomTheme.typography.body1Medium,
