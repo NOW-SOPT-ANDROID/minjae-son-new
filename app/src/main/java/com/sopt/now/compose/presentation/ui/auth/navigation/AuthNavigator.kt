@@ -5,15 +5,15 @@ import androidx.navigation.NavController
 class AuthNavigator(
     private val navController: NavController
 ) {
-    fun navigateToSignIn(id: String, password: String, nickname: String, phoneNumber: String) {
-        navController.navigate("signIn/$id/$password/$nickname/$phoneNumber")
+    fun navigateToSignIn() {
+        navController.navigate("signIn")
     }
 
     fun navigateToSignUp() {
         navController.navigate("signUp")
     }
 
-    fun navigateToHome(id: String, password: String, nickname: String, phoneNumber: String) {
+    fun navigateToHome(id: String?, password: String?, nickname: String?, phoneNumber: String?) {
         navController.navigate("home/$id/$password/$nickname/$phoneNumber")
     }
 
