@@ -13,7 +13,9 @@ import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
 import com.sopt.now.compose.presentation.ui.home.navigation.HomeNavigator
 import com.sopt.now.compose.presentation.ui.navigator.MainNavHost
 import com.sopt.now.compose.ui.theme.CUSTOMTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
