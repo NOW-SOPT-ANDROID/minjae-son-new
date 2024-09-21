@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.sopt.now.compose.presentation.ui.auth.navigation.AuthNavigator
 import com.sopt.now.compose.presentation.ui.auth.navigation.authNavGraph
+import com.sopt.now.compose.presentation.ui.auth.screen.AuthViewModel
 import com.sopt.now.compose.presentation.ui.home.navigation.HomeNavigator
 import com.sopt.now.compose.presentation.ui.home.navigation.homeNavGraph
 
@@ -18,6 +19,7 @@ fun MainNavHost(
     navHostController: NavHostController,
     modifier: Modifier = Modifier,
     authNavigator: AuthNavigator,
+    authViewModel: AuthViewModel,
     homeNavigator: HomeNavigator
 ) {
     Box(
@@ -27,9 +29,9 @@ fun MainNavHost(
     ) {
         NavHost(
             navController = navHostController,
-            startDestination = "signIn/{id}/{password}/{nickname}/{phoneNumber}"
+            startDestination = "signIn"
         ) {
-            authNavGraph(authNavigator)
+            authNavGraph(authNavigator,authViewModel)
             homeNavGraph(homeNavigator)
         }
     }
